@@ -80,6 +80,7 @@ elif [[ "$branch" == *"no branch"* ]]; then
     branch="_PREHASH_$( git rev-parse --short HEAD )"
   fi
 else
+  branch=$(echo $branch|sed 's/.*\/HVEP-\([0-9]*\)-.*/HVEP-\1/g')
   if [[ "${#branch_fields[@]}" -eq 1 ]]; then
     remote="_NO_REMOTE_TRACKING_"
   else
